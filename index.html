@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Researcher Publications</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+        input, button { margin: 10px; padding: 10px; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Search Researcher Publications</h1>
+
+    <input type="text" id="permalinkInput" placeholder="Enter Researcher Permalink">
+    <button onclick="searchPublications()">Search</button>
+
+    <h2>Publications</h2>
+    <ul id="publist"></ul>
+
+    <!-- Include the researchmap-api.js script -->
+    <script src="js/researchmap-api.js"></script>
+    <script>
+        function searchPublications() {
+            const permalink = document.getElementById("permalinkInput").value.trim();
+            if (!permalink) {
+                alert("Please enter a researcher permalink.");
+                return;
+            }
+
+            // Clear previous results
+            document.getElementById("publist").innerHTML = "";
+
+            // Fetch and display publications
+            publist(permalink, "publist", 20);
+        }
+    </script>
+</body>
+</html>
