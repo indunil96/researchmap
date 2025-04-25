@@ -6,7 +6,7 @@
  * @param {string} from_date - Starting publication date e.g. 2016 or 2016-01-01.
  * @param {string} to_date - Ending publication date e.g. 2016-01-01.
  */
-function publist(permalink, ulid='publist', limit=100, from_date='', to_date=''){
+function publist(permalink, ulid='publist', limit=1000, from_date='', to_date=''){
     let publicationList = document.querySelector(`ul#${ulid}`);  // target html element
 
     // Show loading state
